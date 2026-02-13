@@ -4,7 +4,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.kotlinAndroid)
+    alias(libs.plugins.androidApplication)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.composeHotReload)
@@ -16,7 +16,7 @@ kotlin {
             jvmTarget.set(JvmTarget.JVM_11)
         }
     }
-    
+
     listOf(
         iosArm64(),
         iosSimulatorArm64()
@@ -26,20 +26,20 @@ kotlin {
             isStatic = true
         }
     }
-    
+
     jvm()
-    
+
     js {
         browser()
         binaries.executable()
     }
-    
+
     @OptIn(ExperimentalWasmDsl::class)
     wasmJs {
         browser()
         binaries.executable()
     }
-    
+
     sourceSets {
         androidMain.dependencies {
             implementation(libs.compose.uiToolingPreview)
@@ -64,20 +64,18 @@ kotlin {
             implementation(libs.kotlinx.coroutinesSwing)
         }
     }
-
-    dependencies {
-        implementation(projects.composeApp)
-        implementation(libs.androidx.activity.compose)
-        implementation(libs.compose.uiToolingPreview)
-    }
 }
 
 android {
-    namespace = "org.mariofernandes.myyear"
+    namespace = "br.com.mrbf.my_year_multiplatform"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
+        applicationId = "br.com.mrbf.my_year_multiplatform"
         minSdk = libs.versions.android.minSdk.get().toInt()
+        targetSdk = libs.versions.android.targetSdk.get().toInt()
+        versionCode = 1
+        versionName = "1.0"
     }
     packaging {
         resources {
@@ -101,11 +99,11 @@ dependencies {
 
 compose.desktop {
     application {
-        mainClass = "org.mariofernandes.myyear.MainKt"
+        mainClass = "br.com.mrbf.my_year_multiplatform.MainKt"
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "org.mariofernandes.myyear"
+            packageName = "br.com.mrbf.my_year_multiplatform"
             packageVersion = "1.0.0"
         }
     }

@@ -1,4 +1,4 @@
-rootProject.name = "my-year-multiplatform"
+rootProject.name = "my_year_multiplatform"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
