@@ -14,7 +14,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
-import org.mariofernandes.myyear.utils.Calculate
+import br.com.mrbf.my_year_multiplatform.utils.Calculate
 
 @Composable
 fun App() {

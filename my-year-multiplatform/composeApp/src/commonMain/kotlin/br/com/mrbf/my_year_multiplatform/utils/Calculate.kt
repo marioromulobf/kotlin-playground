@@ -1,4 +1,4 @@
-package org.mariofernandes.myyear.utils
+package br.com.mrbf.my_year_multiplatform.utils
 
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
